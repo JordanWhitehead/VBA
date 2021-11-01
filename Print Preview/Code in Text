@@ -1,0 +1,5 @@
+Sub CallSheetInput_Button3_Click()
+Worksheets("Sheet to get Print Preview of").Activate
+ActiveWindow.SelectedSheets.PrintPreview
+Worksheets("Sheet to go back to after done with Print Preview").Activate
+End Sub
