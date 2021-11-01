@@ -1,0 +1,19 @@
+Sub Get_Data_From_File()
+Dim FileToOpen As Variant
+Dim OpenBook As Workbook
+
+Application.ScreenUpdating = False
+
+    FileToOpen = Application.GetOpenFilename(Title:="Import the file", FileFilter:="CSV Files (*.csv*), *csv*")
+    If FileToOpen <> False Then
+        Set OpenBook = Application.Workbooks.Open(FileToOpen)
+        OpenBook.Sheets(1).Range("A1:B80").Copy
+        ThisWorkbook.Worksheets("Sheet1").Range("B1").PasteSpecial
+        OpenBook.Close False
+    End If
+
+Application.ScreenUpdating = True
+
+ActiveSheet.Range("B1:B50").RemoveDuplicates Columns:=Array(1), Header:=x2Yes
+        
+End Sub
