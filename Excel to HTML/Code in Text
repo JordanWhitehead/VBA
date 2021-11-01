@@ -1,0 +1,15 @@
+Sub Export()
+ Dim rng As Range
+
+ file1 = "C:\location\of\the\file\Name the File Here.html"
+
+ Set rng = Sheets("Sheet1").Range("A1:S27")
+
+ ActiveWorkbook.PublishObjects.Add( _
+ SourceType:=xlSourceRange, _
+ Filename:=file1, _
+ Sheet:=rng.Worksheet.Name, _
+ Source:=rng.Address, _
+ HtmlType:=xlHtmlStatic).Publish
+
+End Sub
